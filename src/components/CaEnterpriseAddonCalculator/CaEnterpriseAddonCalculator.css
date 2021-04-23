@@ -1,0 +1,468 @@
+:root {
+  --breakpointsSmall: @theme breakpointsSmall;
+  --breakpointsMedium: @theme breakpointsMedium;
+}
+
+.CaEnterpriseAddonCalculator {
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    padding: 20px;
+  }
+}
+
+.users {
+  display: flex;
+  justify-content: center;
+}
+
+.radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin-right: 8px;
+  margin-bottom: 40px;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    margin-right: 40px;
+  }
+}
+
+.radio-label {
+  cursor: pointer;
+  padding-left: 8px;
+}
+
+.radio-input {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+
+  &:checked {
+    & ~ .radio-circle {
+      &:after {
+        content: "";
+        display: block;
+        height: 12px;
+        width: 12px;
+        background: @theme colorPrimary;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.radio-circle {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: solid 1px #00aeef;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    flex-wrap: nowrap;
+  }
+}
+
+.chart-products {
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    background: #ffffff;
+    border: solid 1px #e3e5e8;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    max-width: 843px;
+    margin-bottom: 20px;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    margin-bottom: 0;
+  }
+}
+
+/* Individual Price Cards */
+.chart-item {
+  background: #ffffff;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  border: solid 1px #f4f5f8;
+  border-radius: 4px;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    max-width: 280px;
+    padding: 0 20px;
+    border: none;
+    border-right: solid 1px #f4f5f8;
+    border-radius: none;
+    margin-bottom: 20px;
+
+    &:last-child {
+      padding: 0 0 0 20px;
+      border-right: none;
+    }
+
+    &:first-child {
+      padding: 0 20px 0 0;
+    }
+  }
+}
+
+.chart-item-top {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    border-radius: 2px;
+    background: @theme colorPrimary;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.chart-item-title {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  width: 100%;
+  flex: 1 1 156px;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    height: 56px;
+  }
+}
+
+.chart-toggle {
+  position: relative;
+}
+
+.chart-toggle-label {
+  width: 52px;
+  height: 30px;
+  background: #6b6c72;
+  border-radius: 30px;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  display: block;
+
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    left: 3px;
+    top: 3px;
+    transition: left 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+  }
+}
+
+.chart-toggle-input {
+  position: absolute;
+  width: 52px;
+  height: 30px;
+  opacity: 0;
+
+  &:checked ~ .chart-toggle-label {
+    background: @theme colorPrimary;
+
+    &:after {
+      left: calc(100% - 3px - 24px);
+    }
+  }
+}
+
+.chart-price-add {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: normal;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chart-price {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #f4f5f8;
+}
+
+.chart-price-dollars {
+  font-size: 1.75rem;
+  line-height: 2rem;
+
+  font-weight: 600;
+  line-height: 1;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+.chart-price-cents {
+  font-size: 1rem;
+  margin-top: 3px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.chart-price-term {
+  font-size: 1rem;
+  font-weight: 400;
+  font-weight: 700;
+  line-height: 1;
+  align-self: flex-end;
+  margin-bottom: 4px;
+}
+
+.chart-features {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.chart-features-item {
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  display: flex;
+
+  /* :global .checkmark {
+      width: 11px;
+      height: 11px;
+      flex: 0 0 11px;
+      right: 0;
+      margin-right: $xs-spacing;
+      top: 0;
+
+      &::before {
+        height: 100%;
+      }
+
+      &::after {
+        width: 60%;
+      }
+    } */
+}
+
+.chart-button {
+  width: auto;
+  margin-top: auto;
+}
+
+.total {
+  background: #ffffff;
+  border: solid 1px #e3e5e8;
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    display: flex;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    display: block;
+    max-width: 268px;
+    margin-left: 20px;
+  }
+}
+
+.total-top {
+  flex: 0 0 50%;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    border-right: solid 1px #f4f5f8;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    border-right: none;
+  }
+}
+
+.total-title {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  padding-bottom: 8px;
+  margin-bottom: 40px;
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    border-radius: 2px;
+    background: @theme colorPrimary;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+}
+
+.total-price {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.total-price-dollars {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  letter-spacing: normal;
+  font-weight: 600;
+  line-height: 1;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 2.75rem;
+  }
+}
+
+.total-price-cents {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  margin-top: 3px;
+  line-height: 1;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 1.5rem;
+  }
+}
+
+.total-price-term {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  align-self: flex-end;
+  margin-bottom: 4px;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    font-size: 1.5rem;
+  }
+}
+
+.total-price-info {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: normal;
+  font-weight: 500;
+  margin: 20px 0;
+  border-bottom: solid 1px #f4f5f8;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    border-bottom: none;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    border-right: none;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #f4f5f8;
+  }
+}
+
+.includes {
+  flex: 0 0 50%;
+
+  /* TABLET STYLES */
+  @media screen and (min-width: var(--breakpointsSmall)) {
+    padding-left: 20px;
+  }
+
+  /* DESKTOP STYLES */
+  @media screen and (min-width: var(--breakpointsMedium)) {
+    padding-left: 0px;
+  }
+}
+
+.includes-title {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.includes-item {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.includes-cost {
+  font-weight: 500;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: var(--breakpointsMedium) - 1) {
+}
+
+/* DESKTOP STYLES */
+@media screen and (min-width: var(--breakpointsMedium)) {
+}
+
+/* TABLET STYLES */
+@media screen and (min-width: var(--breakpointsSmall)) {
+}
